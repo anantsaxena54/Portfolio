@@ -18,7 +18,7 @@ export class PortfolioService {
       tagline: 'Available for opportunities',
       desc: 'Full Stack Java Developer crafting enterprise-grade systems at Cognizant TriZetto. I build the backend that powers healthcare, and the frontend that makes it human.',
       github: 'https://github.com/anantsaxena54',
-      linkedin: 'https://linkedin.com/in/anant-saxena-1904',
+      linkedin: 'https://www.linkedin.com/in/anant-saxena1904/',
       email: 'anantsaxena54@gmail.com',
       phone: '+91 7477294570',
       roles: ['Java Full Stack Developer', 'Spring Boot Engineer', 'Angular 18 Developer', 'Healthcare Tech Builder', 'Backend Architect'],
