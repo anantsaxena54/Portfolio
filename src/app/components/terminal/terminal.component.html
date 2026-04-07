@@ -1,0 +1,41 @@
+<div class="terminal-backdrop" *ngIf="isOpen" [@backdropAnimation] (click)="closeTerminal()"></div>
+
+<div class="terminal-window" 
+     *ngIf="isOpen" 
+     [@termAnimation]
+     [style.transform]="'translate(' + termX + 'px, ' + termY + 'px)'">
+  
+  <div class="terminal-header"
+       (mousedown)="onDragStart($event)"
+       (touchstart)="onDragStart($event)">
+    <div class="header-dots">
+      <span class="dot red" (click)="closeTerminal(); $event.stopPropagation()"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+    <div class="header-title">anant&#64;portfolio: ~</div>
+  </div>
+
+  <div class="terminal-body" #termBody (click)="focusInput()">
+    <div class="terminal-output">
+      <div *ngFor="let line of history" [ngClass]="['line', line.type]">
+        <span *ngIf="line.type === 'input'" class="prompt">anant&#64;portfolio:~$ </span>
+        <span class="content">{{ line.text.replace('anant&#64;portfolio:~$ ', '') }}</span>
+      </div>
+    </div>
+    
+    <div class="terminal-input-line">
+      <span class="prompt">anant&#64;portfolio:~$ </span>
+      <input 
+        #cmdInput
+        type="text" 
+        [(ngModel)]="currentInput" 
+        (keydown.enter)="handleCommand()"
+        (keydown)="handleKeyDown($event)"
+        spellcheck="false"
+        autocomplete="off"
+        autofocus
+      />
+    </div>
+  </div>
+</div>

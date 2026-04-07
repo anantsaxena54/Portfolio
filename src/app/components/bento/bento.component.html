@@ -1,0 +1,101 @@
+<section id="about" class="bento-section">
+  <div class="section-tag">01. Identity</div>
+  <div class="section-title">The person<br>behind the <span>code</span></div>
+
+  <div class="bento-grid">
+    <!-- Tile 1: Profile & Bio (Large, spans 2 cols on Desktop) -->
+    <div class="bento-tile bento-bio fade-in">
+      <div class="bio-header">
+        <div class="photo-container">
+          <img class="profile-image" src="assets/anant-avatar.svg" alt="Anant Saxena"
+            onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Anant&backgroundColor=8b5cf6'" />
+          <div class="glow-ring"></div>
+        </div>
+        <div class="bio-titles">
+          <h3>Hey, I'm Anant 👋</h3>
+          <p class="role-highlight">Full Stack Developer</p>
+        </div>
+      </div>
+      <div class="bio-content">
+        <p>I design RESTful microservices, build interactive UIs, and craft seamless digital experiences. Right now, I'm
+          contributing to enterprise healthcare solutions that power medical systems across the globe.</p>
+        <button class="bento-action-btn" (click)="scrollTo('contact')" appMagnetic [magneticPull]="15">Let's Talk <span
+            class="arrow">→</span></button>
+      </div>
+    </div>
+
+    <!-- Tile 2: Current Role (Medium) -->
+    <div class="bento-tile bento-role fade-in" style="animation-delay: 0.1s;">
+      <div class="tile-icon company-icon">🏢</div>
+      <h4>Currently Building</h4>
+      <div class="role-details">
+        <p class="company">Cognizant Technology Solutions</p>
+        <p class="product">TriZetto NetworX Platform</p>
+      </div>
+      <div class="pulse-indicator">
+        <span class="dot"></span>
+        <span class="text">Active System</span>
+      </div>
+    </div>
+
+    <!-- Tile 3: Location (Medium) -->
+    <div class="bento-tile bento-location fade-in" style="animation-delay: 0.2s;">
+      <div class="map-bg"></div>
+      <div class="location-content">
+        <div class="pin">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+              clip-rule="evenodd" />
+          </svg>
+        </div>
+        <h4>Location</h4>
+        <p>Pune, Maharashtra</p>
+        <p class="time">India Standard Time (IST)</p>
+      </div>
+    </div>
+
+    <!-- Tile 4: Tech Stack Highlights (Large) -->
+    <div class="bento-tile bento-tech fade-in" style="animation-delay: 0.3s;">
+      <h4>Core Arsenal</h4>
+      <div class="tech-grid">
+        <div class="tech-item" *ngFor="let skill of topSkills">
+          <span class="tech-icon">{{ skill.icon }}</span>
+          <span class="tech-name">{{ skill.name }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tile 5: Statistics (Medium) -->
+    <div class="bento-tile bento-stats fade-in" style="animation-delay: 0.4s;">
+      <div class="stats-container">
+        <div class="stat-mini" *ngFor="let stat of profile.stats.slice(0,3)">
+          <span class="val">{{ stat.value }}</span>
+          <span class="lbl">{{ stat.label }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tile 6: Terminal Launcher (Medium) -->
+    <div class="bento-tile bento-visual bento-terminal-launcher fade-in" 
+         style="animation-delay: 0.5s;" 
+         (click)="openTerminal()"
+         appMagnetic
+         [magneticPull]="20">
+      <div class="terminal-mini-header">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <div class="orb-container">
+        <div class="terminal-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+        </div>
+      </div>
+      <div class="visual-text">
+        <h4>Interactive CLI</h4>
+        <p>Explore via Command Line</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<nav [class.scrolled]="scrolled">
+  <a class="nav-logo" (click)="scrollTo('hero')">AS</a>
+  <ul class="nav-links">
+    <li *ngFor="let link of ['About','Skills','Experience','Projects','Certifications','Contact']">
+      <a [class.active]="activeSection === link" (click)="scrollTo(link)">{{link}}</a>
+    </li>
+  </ul>
+  <a class="nav-cta" (click)="scrollTo('contact')">Get in touch</a>
+  <div class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" [class.open]="menuOpen">
+  <a *ngFor="let link of ['about','skills','experience','projects','certifications','contact']"
+    (click)="scrollTo(link)">{{link}}</a>
+</div>

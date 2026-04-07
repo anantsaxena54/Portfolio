@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d1124"/>
+      <stop offset="100%" stop-color="#04050f"/>
+    </radialGradient>
+
+    <!-- Purple glow -->
+    <radialGradient id="purpleGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Teal glow -->
+    <radialGradient id="tealGlow" cx="50%" cy="70%" r="45%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Face gradient -->
+    <linearGradient id="faceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Visor gradient -->
+    <linearGradient id="visorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <!-- Visor reflection -->
+    <linearGradient id="visorReflect" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Suit gradient -->
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0c0a1e"/>
+    </linearGradient>
+
+    <!-- Collar glow gradient -->
+    <linearGradient id="collarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+
+    <!-- HUD line gradient -->
+    <linearGradient id="hudGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Strong glow -->
+    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft glow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip circle -->
+    <clipPath id="circleClip">
+      <circle cx="200" cy="200" r="190"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── BACKGROUND ── -->
+  <circle cx="200" cy="200" r="200" fill="url(#bgGrad)"/>
+
+  <!-- Glow orbs -->
+  <circle cx="200" cy="160" r="160" fill="url(#purpleGlow)"/>
+  <circle cx="200" cy="260" r="130" fill="url(#tealGlow)"/>
+
+  <!-- Grid lines -->
+  <g clip-path="url(#circleClip)" opacity="0.07" stroke="#8b5cf6" stroke-width="0.5">
+    <line x1="0" y1="50" x2="400" y2="50"/><line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="0" y1="250" x2="400" y2="250"/><line x1="0" y1="300" x2="400" y2="300"/>
+    <line x1="0" y1="350" x2="400" y2="350"/>
+    <line x1="50" y1="0" x2="50" y2="400"/><line x1="100" y1="0" x2="100" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="400"/><line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="250" y1="0" x2="250" y2="400"/><line x1="300" y1="0" x2="300" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+  </g>
+
+  <!-- ── BODY / SUIT ── -->
+  <!-- Suit base -->
+  <path d="M 80 400 Q 80 310 120 285 Q 155 265 200 260 Q 245 265 280 285 Q 320 310 320 400 Z"
+        fill="url(#suitGrad)" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- Suit panels -->
+  <path d="M 145 285 L 130 340 L 165 340 L 175 300 Z"
+        fill="#1a1040" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <path d="M 255 285 L 270 340 L 235 340 L 225 300 Z"
+        fill="#1a1040" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.5"/>
+
+  <!-- Chest panel -->
+  <rect x="168" y="295" width="64" height="42" rx="4"
+        fill="#0d1124" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.6"/>
+  <!-- Chest circuit lines -->
+  <line x1="176" y1="308" x2="224" y2="308" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="176" y1="316" x2="210" y2="316" stroke="#14b8a6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="176" y1="324" x2="218" y2="324" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.4"/>
+  <circle cx="220" cy="308" r="2.5" fill="#14b8a6" filter="url(#softGlow)"/>
+  <circle cx="210" cy="316" r="2" fill="#8b5cf6" filter="url(#softGlow)"/>
+  <circle cx="218" cy="324" r="2" fill="#14b8a6" filter="url(#softGlow)"/>
+
+  <!-- Collar glow strip -->
+  <path d="M 148 280 Q 200 270 252 280" fill="none" stroke="url(#collarGrad)" stroke-width="2.5" filter="url(#softGlow)"/>
+
+  <!-- Shoulder pads -->
+  <path d="M 105 290 Q 90 280 95 265 Q 108 255 125 262 Q 138 268 140 280 Z"
+        fill="#1a1040" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.5"/>
+  <path d="M 295 290 Q 310 280 305 265 Q 292 255 275 262 Q 262 268 260 280 Z"
+        fill="#1a1040" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.5"/>
+  <!-- Shoulder accent lines -->
+  <line x1="108" y1="275" x2="130" y2="270" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.6"/>
+  <line x1="292" y1="275" x2="270" y2="270" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.6"/>
+
+  <!-- ── NECK ── -->
+  <rect x="183" y="252" width="34" height="30" rx="4"
+        fill="url(#faceGrad)" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+  <!-- Neck tech lines -->
+  <line x1="192" y1="258" x2="208" y2="258" stroke="#8b5cf6" stroke-width="0.6" stroke-opacity="0.4"/>
+  <line x1="190" y1="264" x2="210" y2="264" stroke="#14b8a6" stroke-width="0.6" stroke-opacity="0.4"/>
+
+  <!-- ── HEAD ── -->
+  <!-- Head base -->
+  <ellipse cx="200" cy="185" rx="78" ry="88"
+           fill="url(#faceGrad)" stroke="#8b5cf6" stroke-width="1.2" stroke-opacity="0.5"/>
+
+  <!-- Helmet top ridge -->
+  <path d="M 148 148 Q 200 118 252 148" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-opacity="0.7"/>
+  <path d="M 155 142 Q 200 112 245 142" fill="none" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- Helmet side panels -->
+  <path d="M 125 180 Q 122 160 130 148 Q 138 138 148 140 L 148 148 Q 138 152 136 168 Z"
+        fill="#0f0c24" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <path d="M 275 180 Q 278 160 270 148 Q 262 138 252 140 L 252 148 Q 262 152 264 168 Z"
+        fill="#0f0c24" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.5"/>
+
+  <!-- Temple tech dots -->
+  <circle cx="130" cy="174" r="3.5" fill="#8b5cf6" filter="url(#glow)"/>
+  <circle cx="130" cy="186" r="2.5" fill="#14b8a6" filter="url(#softGlow)"/>
+  <circle cx="270" cy="174" r="3.5" fill="#8b5cf6" filter="url(#glow)"/>
+  <circle cx="270" cy="186" r="2.5" fill="#14b8a6" filter="url(#softGlow)"/>
+
+  <!-- Temple lines -->
+  <line x1="133" y1="174" x2="145" y2="172" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.6"/>
+  <line x1="133" y1="186" x2="145" y2="184" stroke="#14b8a6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="267" y1="174" x2="255" y2="172" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.6"/>
+  <line x1="267" y1="186" x2="255" y2="184" stroke="#14b8a6" stroke-width="0.8" stroke-opacity="0.5"/>
+
+  <!-- ── VISOR ── -->
+  <!-- Visor shadow/depth -->
+  <path d="M 148 168 Q 148 156 200 154 Q 252 156 252 168 L 250 196 Q 248 212 200 214 Q 152 212 150 196 Z"
+        fill="#050510" opacity="0.8"/>
+
+  <!-- Visor main -->
+  <path d="M 150 168 Q 150 157 200 155 Q 250 157 250 168 L 248 195 Q 246 210 200 212 Q 154 210 152 195 Z"
+        fill="url(#visorGrad)" opacity="0.85" filter="url(#softGlow)"/>
+
+  <!-- Visor reflection highlight -->
+  <path d="M 162 162 Q 200 158 238 162 L 236 176 Q 200 173 164 176 Z"
+        fill="url(#visorReflect)"/>
+
+  <!-- Visor scanline effect -->
+  <path d="M 153 178 Q 200 176 247 178" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.15"/>
+  <path d="M 153 185 Q 200 183 247 185" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.1"/>
+  <path d="M 153 192 Q 200 190 247 192" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.08"/>
+
+  <!-- Visor inner glow -->
+  <path d="M 152 170 Q 152 158 200 156 Q 248 158 248 170 L 246 194 Q 244 208 200 210 Q 156 208 154 194 Z"
+        fill="none" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.6" filter="url(#softGlow)"/>
+
+  <!-- HUD elements inside visor -->
+  <!-- Left bracket -->
+  <path d="M 162 172 L 158 172 L 158 186 L 162 186" fill="none" stroke="#14b8a6" stroke-width="1.2" stroke-opacity="0.8"/>
+  <!-- Right bracket -->
+  <path d="M 238 172 L 242 172 L 242 186 L 238 186" fill="none" stroke="#14b8a6" stroke-width="1.2" stroke-opacity="0.8"/>
+  <!-- Center reticle -->
+  <circle cx="200" cy="183" r="8" fill="none" stroke="#14b8a6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <circle cx="200" cy="183" r="2" fill="#14b8a6" fill-opacity="0.6"/>
+  <line x1="191" y1="183" x2="195" y2="183" stroke="#14b8a6" stroke-width="0.8" stroke-opacity="0.7"/>
+  <line x1="205" y1="183" x2="209" y2="183" stroke="#14b8a6" stroke-width="0.8" stroke-opacity="0.7"/>
+  <line x1="200" y1="174" x2="200" y2="178" stroke="#14b8a6" stroke-width="0.8" stroke-opacity="0.7"/>
+  <line x1="200" y1="188" x2="200" y2="192" stroke="#14b8a6" stroke-width="0.8" stroke-opacity="0.7"/>
+  <!-- HUD data lines -->
+  <line x1="165" y1="175" x2="188" y2="175" stroke="#8b5cf6" stroke-width="0.7" stroke-opacity="0.6"/>
+  <line x1="212" y1="175" x2="235" y2="175" stroke="#8b5cf6" stroke-width="0.7" stroke-opacity="0.6"/>
+  <line x1="165" y1="200" x2="183" y2="200" stroke="#8b5cf6" stroke-width="0.7" stroke-opacity="0.5"/>
+  <line x1="217" y1="200" x2="235" y2="200" stroke="#8b5cf6" stroke-width="0.7" stroke-opacity="0.5"/>
+  <!-- Small HUD dots -->
+  <circle cx="172" cy="205" r="1.5" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="178" cy="205" r="1.5" fill="#14b8a6" opacity="0.7"/>
+  <circle cx="222" cy="205" r="1.5" fill="#14b8a6" opacity="0.7"/>
+  <circle cx="228" cy="205" r="1.5" fill="#8b5cf6" opacity="0.7"/>
+
+  <!-- Visor outer frame -->
+  <path d="M 148 168 Q 148 156 200 154 Q 252 156 252 168 L 250 196 Q 248 212 200 214 Q 152 212 150 196 Z"
+        fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.8" filter="url(#softGlow)"/>
+
+  <!-- Visor corner accents -->
+  <path d="M 152 162 L 148 162 L 148 168" fill="none" stroke="#a78bfa" stroke-width="2" stroke-opacity="0.9"/>
+  <path d="M 248 162 L 252 162 L 252 168" fill="none" stroke="#a78bfa" stroke-width="2" stroke-opacity="0.9"/>
+  <path d="M 152 200 L 150 204 L 154 208" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.8"/>
+  <path d="M 248 200 L 250 204 L 246 208" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.8"/>
+
+  <!-- ── LOWER FACE / MASK ── -->
+  <path d="M 150 196 Q 152 226 200 232 Q 248 226 250 196 L 248 212 Q 246 228 200 234 Q 154 228 152 212 Z"
+        fill="#0c0a1e" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.4"/>
+
+  <!-- Mouth grille -->
+  <rect x="178" y="216" width="44" height="14" rx="3"
+        fill="#080c1a" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="182" y1="220" x2="218" y2="220" stroke="#8b5cf6" stroke-width="0.7" stroke-opacity="0.4"/>
+  <line x1="182" y1="224" x2="218" y2="224" stroke="#14b8a6" stroke-width="0.7" stroke-opacity="0.4"/>
+  <line x1="190" y1="217" x2="190" y2="229" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+  <line x1="200" y1="217" x2="200" y2="229" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+  <line x1="210" y1="217" x2="210" y2="229" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+
+  <!-- Chin detail -->
+  <path d="M 175 228 Q 200 240 225 228" fill="none" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- ── FLOATING GEOMETRIC ELEMENTS ── -->
+  <!-- Orbiting triangle top-right -->
+  <polygon points="340,68 354,92 326,92"
+           fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.6"
+           filter="url(#softGlow)"/>
+  <polygon points="340,74 350,88 330,88"
+           fill="rgba(139,92,246,0.08)"/>
+
+  <!-- Orbiting square bottom-left -->
+  <rect x="42" y="295" width="22" height="22" rx="2"
+        fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.6"
+        transform="rotate(20, 53, 306)" filter="url(#softGlow)"/>
+
+  <!-- Small diamond top-left -->
+  <polygon points="68,80 78,90 68,100 58,90"
+           fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-opacity="0.7"
+           filter="url(#softGlow)"/>
+
+  <!-- Floating octagon bottom-right -->
+  <polygon points="330,310 340,305 350,310 355,322 350,334 340,339 330,334 325,322"
+           fill="none" stroke="#14b8a6" stroke-width="1.2" stroke-opacity="0.5"
+           filter="url(#softGlow)"/>
+
+  <!-- Particle dots scattered -->
+  <circle cx="60" cy="150" r="2" fill="#8b5cf6" opacity="0.6" filter="url(#softGlow)"/>
+  <circle cx="75" cy="230" r="1.5" fill="#14b8a6" opacity="0.5"/>
+  <circle cx="335" cy="155" r="2" fill="#a78bfa" opacity="0.6" filter="url(#softGlow)"/>
+  <circle cx="350" cy="240" r="1.5" fill="#14b8a6" opacity="0.5"/>
+  <circle cx="90" cy="340" r="2.5" fill="#8b5cf6" opacity="0.4" filter="url(#softGlow)"/>
+  <circle cx="315" cy="355" r="2" fill="#14b8a6" opacity="0.4"/>
+  <circle cx="55" cy="60" r="1.5" fill="#14b8a6" opacity="0.5"/>
+  <circle cx="345" cy="75" r="1.5" fill="#8b5cf6" opacity="0.5"/>
+
+  <!-- Connection lines between particles -->
+  <line x1="60" y1="150" x2="75" y2="230" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="335" y1="155" x2="350" y2="240" stroke="#14b8a6" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="68" y1="100" x2="60" y2="150" stroke="#a78bfa" stroke-width="0.5" stroke-opacity="0.25"/>
+
+  <!-- ── CIRCULAR FRAME ── -->
+  <!-- Outer ring -->
+  <circle cx="200" cy="200" r="194" fill="none" stroke="url(#collarGrad)" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- Inner ring -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+
+  <!-- Ring tick marks -->
+  <g stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.6">
+    <line x1="200" y1="6" x2="200" y2="16"/>
+    <line x1="200" y1="384" x2="200" y2="394"/>
+    <line x1="6" y1="200" x2="16" y2="200"/>
+    <line x1="384" y1="200" x2="394" y2="200"/>
+  </g>
+  <g stroke="#14b8a6" stroke-width="1" stroke-opacity="0.5">
+    <line x1="334" y1="62" x2="328" y2="70"/>
+    <line x1="66" y1="62" x2="72" y2="70"/>
+    <line x1="334" y1="338" x2="328" y2="330"/>
+    <line x1="66" y1="338" x2="72" y2="330"/>
+  </g>
+
+  <!-- Corner bracket decorations -->
+  <!-- Top-left -->
+  <path d="M 28 60 L 28 28 L 60 28" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- Top-right -->
+  <path d="M 372 60 L 372 28 L 340 28" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- Bottom-left -->
+  <path d="M 28 340 L 28 372 L 60 372" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- Bottom-right -->
+  <path d="M 372 340 L 372 372 L 340 372" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.5"/>
+
+  <!-- ── NAME INITIALS BADGE ── -->
+  <rect x="168" y="354" width="64" height="26" rx="4"
+        fill="#0d1124" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="200" y="372" font-family="'Courier New', monospace" font-size="12"
+        font-weight="bold" fill="url(#collarGrad)" text-anchor="middle" letter-spacing="3">AS</text>
+
+  <!-- Final outer glow ring -->
+  <circle cx="200" cy="200" r="197" fill="none" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.15" filter="url(#softGlow)"/>
+</svg>

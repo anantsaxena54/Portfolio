@@ -1,0 +1,18 @@
+<section id="certifications" class="cert-section">
+  <div class="section-tag fade-in"><span>05.</span> Achievements</div>
+  <h2 class="section-title fade-in">My <span>Certifications</span></h2>
+
+  <div class="cert-container">
+    <div class="cert-card fade-in" *ngFor="let cert of certifications">
+      <div class="cert-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 15l-2 5l9 -5l-9 -5l2 5z"></path>
+          <circle cx="12" cy="8" r="6"></circle>
+        </svg>
+      </div>
+      <div class="cert-content">
+        <h3>{{ cert.name }}</h3>
+      </div>
+    </div>
+  </div>
+</section>

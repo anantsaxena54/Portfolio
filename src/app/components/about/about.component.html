@@ -1,0 +1,34 @@
+<section id="about">
+  <div class="section-tag">01. About me</div>
+  <div class="section-title">The person<br>behind the <span>code</span></div>
+
+  <div class="about-grid">
+    <div class="about-photo fade-in">
+      <div class="photo-frame">
+<img class="profile-image" src="assets/anant-avatar.svg" alt="Anant Saxena" />
+        <div class="photo-corner c-tl"></div>
+        <div class="photo-corner c-tr"></div>
+        <div class="photo-corner c-bl"></div>
+        <div class="photo-corner c-br"></div>
+      </div>
+      <div class="photo-glow"></div>
+    </div>
+
+    <div class="about-text fade-in">
+      <p>Hey, I'm Anant — a Full Stack Java Developer based in Bhopal, MP. Currently building enterprise healthcare solutions at
+        <strong class="highlight-purple">Cognizant Technology Solutions</strong>, contributing to the TriZetto NetworX platform that powers healthcare payer systems across the US.
+      </p>
+      <p>My stack centers around
+        <strong class="highlight-teal">Spring Boot + Angular 18</strong> — I design RESTful microservices on the backend, build interactive UIs on the frontend, and care deeply about security, performance, and clean architecture.
+      </p>
+      <p>When I'm not writing code, I'm solving DSA problems, reading about system design, or exploring new frameworks to add to my toolkit.</p>
+
+      <div class="stats-grid">
+        <div class="stat-card" *ngFor="let stat of stats">
+          <div class="stat-val">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

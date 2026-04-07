@@ -1,0 +1,56 @@
+<div class="chatbot-container">
+  
+  <!-- Chat Window -->
+  <div class="chat-window" *ngIf="isOpen" [@chatWindowAnimation]>
+    <div class="chat-header">
+      <div class="bot-info">
+        <div class="bot-avatar">🤖</div>
+        <div class="bot-details">
+          <h4>Anant's AI Assistant</h4>
+          <span class="status">Online</span>
+        </div>
+      </div>
+      <button class="close-btn" (click)="toggleChat()">×</button>
+    </div>
+
+    <div class="chat-messages" #scrollMe>
+      <div class="message" *ngFor="let msg of messages" [ngClass]="msg.role">
+        <div class="bubble">
+          {{ msg.content }}
+        </div>
+      </div>
+      
+      <!-- Typing Indicator -->
+      <div class="message bot" *ngIf="isLoading">
+        <div class="bubble typing-indicator">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-inputArea">
+      <input 
+        type="text" 
+        [(ngModel)]="userMessage" 
+        (keyup.enter)="sendMessage()"
+        placeholder="Ask me anything about Anant..."
+        [disabled]="isLoading"
+      />
+      <button class="send-btn" (click)="sendMessage()" [disabled]="!userMessage.trim() || isLoading">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3.478 2.404a.75.75 0 00-.926.941l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.404z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toggle Button -->
+  <button class="chat-toggle-btn" (click)="toggleChat()" [ngClass]="{'open': isOpen}" appMagnetic [magneticPull]="50">
+    <span *ngIf="!isOpen">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.34a15.964 15.964 0 00-13.687 0m13.687 0c.937.3 1.5 1.157 1.5 2.15v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 00-.825-.242m9.345-8.34a15.964 15.964 0 00-13.687 0z" />
+      </svg>
+    </span>
+    <span *ngIf="isOpen">×</span>
+  </button>
+</div>

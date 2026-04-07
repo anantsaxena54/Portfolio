@@ -1,0 +1,31 @@
+<section id="skills">
+  <div class="section-tag">02. Technical skills</div>
+  <div class="section-title">What I work<br>with <span>daily</span></div>
+
+  <div class="skills-layout">
+    <!-- Skill orb grid -->
+    <div class="fade-in">
+      <div class="skill-orb-grid">
+        <div class="skill-orb" *ngFor="let skill of skills">
+          <span class="skill-icon">{{ skill.icon }}</span>
+          <span class="skill-name">{{ skill.name }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated progress bars -->
+    <div class="skill-bars">
+      <div class="skill-bar-item"
+           *ngFor="let skill of skills"
+           [attr.data-pct]="skill.proficiency">
+        <div class="skill-bar-header">
+          <span class="skill-bar-name">{{ skill.name }}</span>
+          <span class="skill-bar-pct">{{ skill.proficiency }}%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

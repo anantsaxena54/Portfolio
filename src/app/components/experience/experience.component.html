@@ -1,0 +1,35 @@
+<section id="experience">
+  <div class="section-tag">03. Experience &amp; Education</div>
+  <div class="section-title">My <span>journey</span><br>so far</div>
+
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let exp of experiences; let i = index"
+         [style.transition-delay]="(i * 0.1) + 's'">
+
+      <div class="timeline-dot" [class.edu]="exp.type === 'education'">
+        <div class="dot-pulse"></div>
+      </div>
+
+      <div class="timeline-card" [class.open]="exp.isOpen" (click)="toggleItem(exp)">
+        <div class="timeline-meta">
+          <div>
+            <div class="tl-title">{{ exp.title }}</div>
+            <div class="tl-company">{{ exp.company }}</div>
+          </div>
+          <div class="tl-right">
+            <span class="tl-period">{{ exp.period }}</span>
+            <span class="tl-location">{{ exp.location }}</span>
+          </div>
+        </div>
+
+        <div class="tl-expand">
+          {{ exp.isOpen ? 'collapse ▾' : 'expand ▸' }}
+        </div>
+
+        <ul class="timeline-points" *ngIf="exp.isOpen">
+          <li *ngFor="let point of exp.points">{{ point }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
