@@ -103,16 +103,5 @@ mvn spring-boot:run
 | Backend   | Spring Boot 3.3, Java 21, Maven             |
 | Email     | JavaMailSender (Gmail SMTP)                 |
 
----
 
-## To add your photo
 
-Replace the `<div class="photo-initials">AS</div>` in `about.component.html` with:
-```html
-<img class="profile-image" src="assets/images/anant.jpg" alt="Anant Saxena" />
-```
-
-And add to `about.component.scss`:
-```scss
-.profile-image { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
-```
