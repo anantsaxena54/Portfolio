@@ -6,7 +6,7 @@ import { Skill, Experience, Project, ContactMessage, Stat, Certification } from 
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioService {
-  private apiBase = 'http://localhost:8080/api';
+  private apiBase = 'https://portfolio-hut2.onrender.com';
 
   constructor(private http: HttpClient) { }
 
