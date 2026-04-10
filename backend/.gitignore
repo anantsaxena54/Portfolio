@@ -1,0 +1,15 @@
+# Environment secrets
+.env
+
+# Build output
+target/
+
+# IDE files
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+# OS files
+.DS_Store

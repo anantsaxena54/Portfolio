@@ -1,0 +1,11 @@
+.env
+.env.example
+.git
+.gitignore
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+target/
+README.md
