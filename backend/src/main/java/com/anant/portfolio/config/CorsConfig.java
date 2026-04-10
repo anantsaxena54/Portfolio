@@ -18,6 +18,7 @@ public class CorsConfig {
             "http://localhost:4200",
             "http://localhost:3000",
             "https://anantsaxena.dev",
+            "https://anantsaxena54.github.io",
             "http://localhost:4200",
             "https://localhost:5500",
             "http://127.0.0.1:5500"
