@@ -3,11 +3,10 @@ package com.anant.portfolio.service;
 import com.anant.portfolio.model.ContactMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.Instant;
 import java.util.Map;
@@ -23,17 +22,16 @@ public class ContactService {
     private static final int MAX_REQUESTS_PER_HOUR = 5;
     private final Map<String, CopyOnWriteArrayList<Instant>> requestLog = new ConcurrentHashMap<>();
 
-    @Autowired(required = false)
-    private JavaMailSender mailSender;
+    private final RestTemplate restTemplate = new RestTemplate();
 
-    @Value("${spring.mail.username:}")
-    private String mailUsername;
-
-    @Value("${spring.mail.password:}")
-    private String mailPassword;
+    @Value("${resend.api.key:}")
+    private String resendApiKey;
 
     @Value("${portfolio.contact.email:anantsaxena54@gmail.com}")
     private String contactEmail;
+
+    @Value("${resend.from.email:onboarding@resend.dev}")
+    private String fromEmail;
 
     /**
      * Check if the given IP has exceeded the rate limit.
@@ -59,32 +57,46 @@ public class ContactService {
 
     public boolean sendEmail(ContactMessage msg) {
         try {
-            boolean mailConfigured =
-                mailSender != null &&
-                mailUsername != null && !mailUsername.isBlank() &&
-                mailPassword != null && !mailPassword.isBlank();
-
-            if (!mailConfigured) {
+            if (resendApiKey == null || resendApiKey.isBlank()) {
                 log.info("📧 [DEV MODE] Contact from {} <{}>\nSubject: {}\nMessage: {}",
                     msg.getName(), msg.getEmail(), msg.getSubject(), msg.getMessage());
                 return true;
             }
 
-            SimpleMailMessage mail = new SimpleMailMessage();
-            mail.setFrom(mailUsername);
-            mail.setTo(contactEmail);
-            mail.setSubject("Portfolio Contact: " + msg.getSubject());
-            mail.setText(String.format(
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.setBearerAuth(resendApiKey);
+
+            String emailBody = String.format(
                 "New message from your portfolio!%n%nFrom: %s%nEmail: %s%n%nMessage:%n%s",
                 msg.getName(), msg.getEmail(), msg.getMessage()
-            ));
-            mail.setReplyTo(msg.getEmail());
-            mailSender.send(mail);
+            );
 
-            log.info("✅ Email sent successfully from {} <{}>", msg.getName(), msg.getEmail());
-            return true;
+            Map<String, Object> body = Map.of(
+                "from", fromEmail,
+                "to", new String[]{contactEmail},
+                "subject", "Portfolio Contact: " + msg.getSubject(),
+                "text", emailBody,
+                "reply_to", msg.getEmail()
+            );
+
+            HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+
+            ResponseEntity<String> response = restTemplate.postForEntity(
+                "https://api.resend.com/emails",
+                request,
+                String.class
+            );
+
+            if (response.getStatusCode().is2xxSuccessful()) {
+                log.info("✅ Email sent successfully via Resend from {} <{}>", msg.getName(), msg.getEmail());
+                return true;
+            } else {
+                log.error("❌ Resend API returned status: {} body: {}", response.getStatusCode(), response.getBody());
+                return false;
+            }
         } catch (Exception e) {
-            log.error("❌ Failed to send email: {}", e.getMessage(), e);
+            log.error("❌ Failed to send email via Resend: {}", e.getMessage(), e);
             return false;
         }
     }
