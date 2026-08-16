@@ -126,8 +126,9 @@ export class PortfolioService {
 
   getCertifications(): Certification[] {
     return [
+      { name: 'AWS Certified Machine Learning Engineer - Associate' },
+      { name: 'AWS Certified AI Practitioner' },
       { name: 'Microsoft Certified: Azure Fundamentals' },
-      { name: 'Microsoft Certified: Azure Developer Associate' },
       { name: 'Microsoft Certified: Azure AI Fundamentals' },
     ];
   }

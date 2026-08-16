@@ -10,7 +10,7 @@ import { PortfolioService } from './portfolio.service';
 export class ChatbotService {
   private initialMessage: ChatMessage = {
     role: 'bot',
-    content: "Hi! I'm Anant's AI Assistant. You can ask me about his Azure certifications, full-stack projects, or work experience. How can I help?"
+    content: "Hi! I'm Anant's AI Assistant. You can ask me about his AWS & Azure certifications, full-stack projects, or work experience. How can I help?"
   };
 
   private messagesSubject = new BehaviorSubject<ChatMessage[]>([this.initialMessage]);
@@ -58,9 +58,9 @@ export class ChatbotService {
       return `He has built some amazing projects! For example, his "${projects[0].title}" uses ${projects[0].tech.join(', ')}. He also worked on a ${projects[1].title} using Python ML!`;
     }
 
-    if (query.includes('azure') || query.includes('cert') || query.includes('cloud')) {
-      const certs = this.portfolioService.getCertifications().map(c => c.name).join(' and ');
-      return `Anant is very proficient with Microsoft Azure! His current certifications include: ${certs}.`;
+    if (query.includes('azure') || query.includes('aws') || query.includes('cert') || query.includes('cloud')) {
+      const certs = this.portfolioService.getCertifications().map(c => c.name).join(', ');
+      return `Anant holds cloud & AI certifications from AWS and Microsoft, including: ${certs}.`;
     }
 
     if (query.includes('hire') || query.includes('contact') || query.includes('email')) {

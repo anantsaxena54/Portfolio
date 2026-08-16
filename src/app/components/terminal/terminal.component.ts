@@ -168,7 +168,7 @@ export class TerminalComponent implements OnInit {
         break;
 
       case 'skills':
-        const skillsOutput = `Languages: Java, Python, TypeScript\nFrameworks: Spring Boot, Angular 18, Hibernate\nDatabases: MySQL, PostgreSQL\nCloud: Microsoft Azure Fundamentals & Developer certified`;
+        const skillsOutput = `Languages: Java, Python, TypeScript\nFrameworks: Spring Boot, Angular 18, Hibernate\nDatabases: MySQL, PostgreSQL\nCloud & AI: AWS (ML Engineer, AI Practitioner) & Microsoft Azure Certified`;
         this.typeOutput(skillsOutput);
         break;
 
