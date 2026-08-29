@@ -51,4 +51,6 @@ import { TerminalComponent } from './components/terminal/terminal.component';
     }
   `]
 })
-export class AppComponent {}
+export class AppComponent {
+  // Minor logic-free change to trigger CodeRabbit PR analysis
+}
